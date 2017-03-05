@@ -1,0 +1,12 @@
+{
+  "parser": "babel-eslint",
+  "plugins": ["react"],
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "rules": {
+    "jsx-quotes": ["error", "prefer-single"],
+    "semi": ["error", "never"]
+  }
+}
