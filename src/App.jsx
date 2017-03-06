@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import sponsors from './data/sponsors.json'
 import * as api from './lib/api'
+import Events from './lib/events'
 
 import './App.scss'
 import Stats from './Stats'
@@ -11,6 +12,17 @@ class App extends Component {
     teams: [],
     users: [],
     sponsors
+  }
+
+  componentWillMount() {
+    this.events = new Events()
+    this.events.on('teams_add', (data) => {
+      console.log('team added', data)
+    })
+  }
+
+  componentWillUnmount() {
+    this.events.clear()
   }
 
   componentDidMount() {
