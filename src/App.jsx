@@ -25,16 +25,6 @@ class App extends Component {
 
   render() {
     const { teams, users, sponsors } = this.state
-    const teamsSlickSettings = {
-      dots: false,
-      infinite: true,
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 2000,
-      nextArrow: <span />,
-      prevArrow: <span />
-    }
     return (
       <div className='container is-fluid'>
         <section className='section'>

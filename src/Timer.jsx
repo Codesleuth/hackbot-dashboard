@@ -12,6 +12,8 @@ class Timer extends Component {
     end: T.instanceOf(Date).isRequired
   }
 
+  timer = null
+
   state = {
     isTeeMinus: false,
     timer: moment.duration(0)
@@ -25,21 +27,32 @@ class Timer extends Component {
 
     this.setState({
       isTeeMinus: now < epochStart,
-      timer: now < epochStart ? moment.duration(epochStart - now, 'milliseconds') : moment.duration(epochEnd - now, 'milliseconds')
+      timer: now < epochStart ? moment.duration(epochStart - now) : moment.duration(epochEnd - now)
     })
   }
 
-  componentDidMount() {
-    setInterval(this.updateTimer.bind(this), 1000)
+  componentWillMount() {
     this.updateTimer()
+  }
+
+  componentDidMount() {
+    this.timer = setInterval(this.updateTimer.bind(this), 1000)
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.timer)
   }
 
   render() {
     const { isTeeMinus, timer } = this.state
     const totalHours = timer.hours() + timer.days() * 24
-    const value = `${isTeeMinus ? 'T-' : ''}${zeroPad(totalHours)}:${zeroPad(timer.minutes())}:${zeroPad(timer.seconds())}`
     return (
-      <span>{value}</span>
+      <span>
+        <span>{isTeeMinus && 'T-'}</span>
+        <span>{zeroPad(totalHours)}</span>:
+        <span>{zeroPad(timer.minutes())}</span>:
+        <span>{zeroPad(timer.seconds())}</span>
+      </span>
     )
   }
 }

@@ -1,7 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes as T } from 'react'
 import Timer from './Timer'
 
 class Stats extends Component {
+  static propTypes = {
+    teams: T.number,
+    hackers: T.number,
+    challenges: T.number
+  }
+
   render() {
     const { teams, hackers, challenges } = this.props
     return (

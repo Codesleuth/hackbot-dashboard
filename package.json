@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "webpack-dev-server",
-    "build": "webpack",
+    "build": "webpack --config webpack.prod.js",
     "lint": "eslint --ext .jsx --ext .js src/"
   },
   "license": "UNLICENSED",
