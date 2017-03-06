@@ -11,17 +11,10 @@ class SponsorsGrid extends Component {
 
     return (
       <div className='columns is-multiline is-mobile'>
-        {sponsors.map((sponsor, i) => (
-          <div key={`sponsor_${i}`} className='column is-6-mobile is-3-tablet is-2-desktop'>
-            <div className='card'>
-              <header className='card-header'>
-                <p className='card-header-title'>
-                  {sponsor.name}
-                </p>
-              </header>
-              <div className='card-image logo' style={{ backgroundImage: `url(${sponsor.logo})` }}>
-                <figure className='image is-128x128'></figure>
-              </div>
+        {sponsors.filter(sponsor => sponsor.challenge).map((sponsor, i) => (
+          <div key={`sponsor_${i}`} className='column is-4-mobile is-3-tablet is-2-desktop'>
+            <div className='logo' style={{ backgroundImage: `url(${sponsor.logo})` }}>
+              <figure className='image is-64x64'></figure>
             </div>
           </div>
         ))}

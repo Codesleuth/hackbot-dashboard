@@ -27,18 +27,23 @@ class App extends Component {
     const { teams, users, sponsors } = this.state
     return (
       <div className='container is-fluid'>
-        <section className='section'>
-          <Stats teams={teams.length} hackers={users.length} challenges={sponsors.length} />
-        </section>
-        <section className='section'>
-          <SponsorsGrid sponsors={sponsors} />
-        </section>
+        <div className='columns top-banner'>
+          <div className='column is-4'>
+            <img src='http://static1.squarespace.com/static/54f1b189e4b0f6df27b46455/t/564e5068e4b052ed0de2b929/1488807242394/?format=1500w' />
+          </div>
+          <div className='column is-8'>
+            <Stats teams={teams.length} hackers={users.length} challenges={sponsors.length} />
+          </div>
+        </div>
         <section className='section'>
           <div>
             {teams.map((team, i) => (
               <div key={`team_${team.id}`} className={['button', 'is-primary', (i % 2 === 0) ? 'is-outlined' : '', 'team-name'].join(' ')}><span>{team.name}</span></div>)
             )}
           </div>
+        </section>
+        <section className='section sponsors'>
+          <SponsorsGrid sponsors={sponsors} />
         </section>
       </div>
     )

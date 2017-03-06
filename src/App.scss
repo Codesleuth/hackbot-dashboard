@@ -10,3 +10,8 @@ $color: $black;
 .team-name {
   margin: $size-6 / 2;
 }
+
+.top-banner {
+  // TODO: fix override in bulma
+  margin-top: $size-6;
+}
