@@ -1,8 +1,10 @@
 import * as Yayson from 'yayson'
 const yayson = Yayson()
 
+const apiUrl = 'https://hack24-api.herokuapp.com'
+
 export function fetchTeams () {
-  return window.fetch('https://hack24-api-staging.herokuapp.com/teams')
+  return window.fetch(`${apiUrl}/teams`)
     .then(response => {
       if (response.ok) {
         return response.json()
@@ -12,7 +14,7 @@ export function fetchTeams () {
 }
 
 export function fetchUsers () {
-  return window.fetch('https://hack24-api-staging.herokuapp.com/users')
+  return window.fetch(`${apiUrl}/users`)
     .then(response => {
       if (response.ok) {
         return response.json()
