@@ -5,11 +5,11 @@ body {
 }
 
 html {
-  background-image: url(https://static1.squarespace.com/static/54f1b189e4b0f6df27b46455/t/5884d2002e69cf6033c78584/1485099540830/Council%2BHouse%2Blow%2Bres.jpg?format=2500w);
+  background-image: url(../public/Council+House.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .section {
-  background-color: rgba(255,255,255,0.5);
+  background-color: rgba(255,255,255,0.7);
 }

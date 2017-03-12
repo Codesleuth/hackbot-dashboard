@@ -1,5 +1,6 @@
 import React, { Component, PropTypes as T } from 'react'
 import Timer from './Timer'
+import './Stats.scss'
 
 class Stats extends Component {
   static propTypes = {
@@ -16,26 +17,26 @@ class Stats extends Component {
           <div className='level-item has-text-centered'>
             <div>
               <p className='heading'>Challenges</p>
-              <p className='title is-1'>{challenges || '-'}</p>
+              <p className='title'>{challenges || '-'}</p>
             </div>
           </div>
           <div className='level-item has-text-centered'>
             <div>
               <p className='heading'>Teams</p>
-              <p className='title is-1'>{teams || '-'}</p>
+              <p className='title'>{teams || '-'}</p>
             </div>
           </div>
           <div className='level-item has-text-centered'>
             <div>
               <p className='heading'>Hackers</p>
-              <p className='title is-1'>{hackers || '-'}</p>
+              <p className='title'>{hackers || '-'}</p>
             </div>
           </div>
         </nav>
         <nav className='level'>
           <div className='level-item has-text-centered'>
             <div>
-              <h2 className='title is-4'>Time Left</h2>
+              <h2 className='heading'>Time Left</h2>
               <h1 className='title is-1'><Timer start={new Date(2017, 2, 18, 12, 0, 0)} end={new Date(2017, 2, 19, 12, 0, 0)} /></h1>
             </div>
           </div>

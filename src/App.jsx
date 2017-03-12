@@ -4,6 +4,7 @@ import * as api from './lib/api'
 import Events from './lib/events'
 
 import './App.scss'
+import Hack24Logo from '../public/Hack24+Logo.png'
 import Stats from './Stats'
 import SponsorsGrid from './SponsorsGrid'
 
@@ -41,9 +42,9 @@ class App extends Component {
       <div className='container is-fluid'>
         <div className='columns top-banner'>
           <div className='column is-4'>
-            <img src='http://static1.squarespace.com/static/54f1b189e4b0f6df27b46455/t/564e5068e4b052ed0de2b929/1488807242394/?format=1500w' />
+            <img src={Hack24Logo} />
           </div>
-          <div className='column is-8'>
+          <div className='column is-6 is-offset-2'>
             <Stats teams={teams.length} hackers={users.length} challenges={sponsors.length} />
           </div>
         </div>
