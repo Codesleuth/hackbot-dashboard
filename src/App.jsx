@@ -41,29 +41,46 @@ class App extends Component {
     const { teams, users, sponsors } = this.state
     return (
       <div className='container is-fluid'>
+        
         <div className='columns top-banner'>
-          <div className='column is-4'>
-            <img src={Hack24Logo} />
+            <div className='column is-4'>
+              <img src={Hack24Logo} />
+            </div>
+            <div className='column has-text-centered'>
+              <section className='hero'>
+              <div className='hero-body'>
+                <Clock/>
+              </div>        
+                
+              </section>
+            </div>
           </div>
-          <div className='column is-8'>
-            <Clock/>
-          </div>
+        
+        <div className='columns'>
+          <div className='column is-12'> 
+            <section className='section stats'>                       
+                <Stats teams={teams.length} hackers={users.length} challenges={sponsors.length} />            
+            </section>  
+          </div>  
         </div>
-        <section className='section stats'>
-          <div className='column is-12'>            
-            <Stats teams={teams.length} hackers={users.length} challenges={sponsors.length} />            
+
+        <div className='columns'>    
+          <div className='column is-12'>
+            <section className='section'>
+              <div>
+                {teams.map((team, i) => (
+                  <div key={`team_${team.id}`} className={['button', 'is-primary', (i % 2 === 0) ? 'is-outlined' : '', 'team-name'].join(' ')}><span>{team.name}</span></div>)
+                )}
+              </div>
+            </section> 
+          </div> 
+        </div>        
+     
+        <div className='columns'>
+            <div className='column is-12'>
+              <SponsorsGrid sponsors={sponsors} />
+            </div>
           </div>
-        </section>        
-        <section className='section'>
-          <div>
-            {teams.map((team, i) => (
-              <div key={`team_${team.id}`} className={['button', 'is-primary', (i % 2 === 0) ? 'is-outlined' : '', 'team-name'].join(' ')}><span>{team.name}</span></div>)
-            )}
-          </div>
-        </section>       
-        <section className='section sponsors'>
-          <SponsorsGrid sponsors={sponsors} />
-        </section>
       </div>
     )
   }

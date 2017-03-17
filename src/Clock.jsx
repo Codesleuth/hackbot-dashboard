@@ -1,5 +1,6 @@
 import React, { Component, PropTypes as T } from 'react'
 import moment from 'moment'
+import './Clock.scss'
 
 class Clock extends Component {
 
@@ -22,19 +23,13 @@ class Clock extends Component {
   }
 
   componentDidMount() {
-    window.setInterval(function () {this.setTime();}.bind(this), 1000);
+    window.setInterval(this.setTime.bind(this), 1000)
   }
 
   render() {
     const { currentdate } = this.state
-      return(  
-        <nav className='level-right'>
-          <div className='level-item has-text-right'>
-            <div>              
-              <h1 className='title is-1'><span className="time">{currentdate}</span></h1>
-            </div>
-          </div>
-        </nav>
+      return(                   
+          <span className="clock">{currentdate}</span>       
       )
     }
 }

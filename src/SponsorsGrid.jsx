@@ -14,7 +14,7 @@ class SponsorsGrid extends Component {
         <div className="tile is-ancestor">
           <div className="tile is-12">
               {sponsors.filter(sponsor => sponsor.challenge).map((sponsor, i) => (                
-                  <div key={`sponsor_${i}`} className='tile is-child'>                    
+                  <div key={`sponsor_${i}`} className='tile is-child logo'>                    
                       <figure className='image is-4by3'>
                         <img src={sponsor.logo}/>
                       </figure>                    
