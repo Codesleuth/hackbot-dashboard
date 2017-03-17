@@ -1,4 +1,4 @@
-# hackbot-dashboard
+# hackbot-dashboard [![Build Status](https://travis-ci.org/Codesleuth/hackbot-dashboard.svg?branch=master)](https://travis-ci.org/Codesleuth/hackbot-dashboard)
 
 _A dashboard for hack events run with Hackbot_
 
