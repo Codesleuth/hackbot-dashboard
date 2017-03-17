@@ -46,8 +46,8 @@ class App extends Component {
             <img src={Hack24Logo} />
           </div>
           <div className='column is-6 is-offset-2'>
-            <Stats teams={teams.length} hackers={users.length} challenges={sponsors.length} />
             <Clock/>
+            <Stats teams={teams.length} hackers={users.length} challenges={sponsors.length} />            
           </div>
         </div>
         <section className='section'>
