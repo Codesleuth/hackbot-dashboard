@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import sponsors from './data/sponsors.json'
 import * as api from './lib/api'
 import Events from './lib/events'
+import Clock from './Clock'
 
 import './App.scss'
 import Hack24Logo from '../public/Hack24+Logo.png'
@@ -46,6 +47,7 @@ class App extends Component {
           </div>
           <div className='column is-6 is-offset-2'>
             <Stats teams={teams.length} hackers={users.length} challenges={sponsors.length} />
+            <Clock/>
           </div>
         </div>
         <section className='section'>
