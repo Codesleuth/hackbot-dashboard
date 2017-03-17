@@ -12,12 +12,12 @@ class Stats extends Component {
   render() {
     const { teams, hackers, challenges } = this.props
     return (
-      <div>
+      <div className='stats'>
         <nav className='level'>
           <div className='level-item has-text-centered'>
             <div>
-              <p className='heading'>Challenges</p>
-              <p className='title'>{challenges || '-'}</p>
+              <h2 className='heading'>Time Left</h2>
+              <h1 className='title is-1'><Timer start={new Date(2017, 2, 18, 12, 0, 0)} end={new Date(2017, 2, 19, 12, 0, 0)} /></h1>
             </div>
           </div>
           <div className='level-item has-text-centered'>
@@ -30,14 +30,6 @@ class Stats extends Component {
             <div>
               <p className='heading'>Hackers</p>
               <p className='title'>{hackers || '-'}</p>
-            </div>
-          </div>
-        </nav>
-        <nav className='level'>
-          <div className='level-item has-text-centered'>
-            <div>
-              <h2 className='heading'>Time Left</h2>
-              <h1 className='title is-1'><Timer start={new Date(2017, 2, 18, 12, 0, 0)} end={new Date(2017, 2, 19, 12, 0, 0)} /></h1>
             </div>
           </div>
         </nav>

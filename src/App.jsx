@@ -45,18 +45,22 @@ class App extends Component {
           <div className='column is-4'>
             <img src={Hack24Logo} />
           </div>
-          <div className='column is-6 is-offset-2'>
+          <div className='column is-8'>
             <Clock/>
-            <Stats teams={teams.length} hackers={users.length} challenges={sponsors.length} />            
           </div>
         </div>
+        <section className='section stats'>
+          <div className='column is-12'>            
+            <Stats teams={teams.length} hackers={users.length} challenges={sponsors.length} />            
+          </div>
+        </section>        
         <section className='section'>
           <div>
             {teams.map((team, i) => (
               <div key={`team_${team.id}`} className={['button', 'is-primary', (i % 2 === 0) ? 'is-outlined' : '', 'team-name'].join(' ')}><span>{team.name}</span></div>)
             )}
           </div>
-        </section>
+        </section>       
         <section className='section sponsors'>
           <SponsorsGrid sponsors={sponsors} />
         </section>

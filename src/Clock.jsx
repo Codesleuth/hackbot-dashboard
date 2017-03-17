@@ -28,10 +28,9 @@ class Clock extends Component {
   render() {
     const { currentdate } = this.state
       return(  
-        <nav className='level'>
-          <div className='level-item has-text-centered'>
-            <div>
-              <h2 className='heading'>Time</h2>
+        <nav className='level-right'>
+          <div className='level-item has-text-right'>
+            <div>              
               <h1 className='title is-1'><span className="time">{currentdate}</span></h1>
             </div>
           </div>
