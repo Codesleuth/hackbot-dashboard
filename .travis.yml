@@ -8,9 +8,7 @@ cache:
 
 install: npm install
 
-script:
-  - npm run lint
-  - npm run build
+script: npm run lint && npm run build
 
 after_success:
   - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bash deploy.sh
