@@ -9,12 +9,27 @@
   margin: $size-6 / 2;
 }
 
-.top-banner {
-  // TODO: fix override in bulma
-  margin-top: $size-6;
-}
-
 .massive {
   @extend .title;
-  font-size: $size-1 * 1.5;
+  font-size: $size-1 * 2;
+}
+
+.app {
+  height: 100%;
+}
+
+.top-banner {
+  height: 25%;
+}
+
+.logos-list {
+  height: 31%
+}
+
+.teams-list {
+  height: 44%;
+
+  .section {
+    height: 100%;
+  }
 }

@@ -7,7 +7,6 @@ import Timer from './Timer'
 
 import './App.scss'
 import Hack24Logo from '../public/Hack24+Logo.png'
-import Stats from './Stats'
 import SponsorsGrid from './SponsorsGrid'
 
 class App extends Component {
@@ -41,16 +40,18 @@ class App extends Component {
   render() {
     const { teams, users, sponsors } = this.state
     return (
-      <div className='container is-fluid'>
+      <div className='app'>
 
         <div className='columns top-banner'>
           <div className='column is-4'>
             <img src={Hack24Logo} />
           </div>
           <div className='column has-text-centered'>
-            <section className='hero'>
-              <div className='hero-body'>
-                <div className='container'>
+
+            <div className='tile is-ancestor'>
+              <div className='tile is-parent'>
+
+                <div className='tile is-child'>
                   <h2 className='subtitle is-3'>
                     <span>Time left</span>
                   </h2>
@@ -61,36 +62,49 @@ class App extends Component {
                     <Clock />
                   </h2>
                 </div>
+
+                <div className='tile is-parent is-vertical'>
+
+                  <div className='tile is-child'>
+                    <h1 className='title'>
+                      {teams.length}
+                    </h1>
+                    <h2 className='subtitle'>
+                      Teams
+                    </h2>
+                  </div>
+
+                  <div className='tile is-child'>
+                    <h1 className='title'>
+                      {users.length}
+                    </h1>
+                    <h2 className='subtitle'>
+                      Hackers
+                    </h2>
+                  </div>
+
+                </div>
+
               </div>
-            </section>
+            </div>
 
           </div>
         </div>
 
-        <div className='columns'>
-          <div className='column is-12'>
-            <section className='section stats'>
-              <Stats teams={teams.length} hackers={users.length} />
-            </section>
-          </div>
-        </div>
-
-        <div className='columns'>
+        <div className='columns logos-list'>
           <div className='column is-12'>
             <section className='section'>
-              <div>
-                {teams.map((team, i) => (
-                  <div key={`team_${team.id}`} className={['button', 'is-primary', (i % 2 === 0) ? 'is-outlined' : '', 'team-name'].join(' ')}><span>{team.name}</span></div>)
-                )}
-              </div>
+              <SponsorsGrid sponsors={sponsors} />
             </section>
           </div>
         </div>
 
-        <div className='columns'>
-          <div className='column is-12'>
-            <SponsorsGrid sponsors={sponsors} />
-          </div>
+        <div className='teams-list'>
+          <section className='section'>
+            {teams.map((team, i) => (
+              <div key={`team_${team.id}`} className={['button', 'is-primary', (i % 2 === 0) ? 'is-outlined' : '', 'team-name'].join(' ')}><span>{team.name}</span></div>)
+            )}
+          </section>
         </div>
       </div>
     )
