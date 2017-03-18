@@ -8,7 +8,9 @@ cache:
 
 install: npm install
 
-script: npm run build
+script:
+  - npm run lint
+  - npm run build
 
 after_success:
   - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bash deploy.sh
@@ -16,4 +18,3 @@ after_success:
 env:
   global:
     - GH_REF: github.com/Codesleuth/hackbot-dashboard.git
-    - secure: "IqSiiW4iLyGwEYclxZF0qulg6KqhaY8/lgczvLcyCZC33hyh3V1iEg1AYkx8O7RqjfZSeNrKxroUI+J6auYSI12NZCC0+qWXi91gHrdluz8Q1Ma7DtE76PDZdcYaafeShzesYGBgHcbFXljhaR9fABVJvgYM05enr1YueKD27kHDuam76smxMWCz5ZngpsYN5i7U+HtC+b+rJe0q8HDIX8UXwZMeG4LXzcO9z9MiA01MOsUJt3MNX6al3Boujp+0ZCqoCarBG1+T/OIzxX06kA5+6t4CDlpkaCOyByB9ydXxuMiWK2Znz++jLla4ghkmIHuzPPEbXiOFvSrxR2LX7q+xAh/hxhQrf3yx9wBgECAl+jry68tkTpwMejDyI7BOKvtV5f0lYxL6KYvGMuaRIWxMlqAxxk87ARViSYVbmvG9zMb+ww7ruxSclEI7ZMZCgZdTeYI5i+OFpcuFkj211bL2RIymJb23bmfpnX1bofo9Y8dN3WZJcFm7FWBeEmx8aPu15G7eRcv/iG6FQrH9NXUhjzzJpfTpAU4mVpakI4eLkwNaCcbhcAfkv3dSq1okQop7Pcjrn0PGHVWFWGaNBfPi+EliAlRL0qeQEvhCpJzGbIT/70UV/0gpSBmqMgM51KnqbpI7XexlMX1IWQ8ctmr37cjKdkpsLxwk5fYlp9c="
