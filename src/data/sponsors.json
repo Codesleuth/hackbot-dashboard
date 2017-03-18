@@ -1,35 +1,35 @@
 [{
   "name": "MHR",
-  "logo": "https://static1.squarespace.com/static/54f1b189e4b0f6df27b46455/t/58affc73e58c6268e74cce19/1487928444713/?format=300w",
+  "logo": "logos/mhr.png",
   "challenge": true
 },{
   "name": "Accelerate Places",
-  "logo": "https://static1.squarespace.com/static/54f1b189e4b0f6df27b46455/t/58b00668e6f2e1f19f4aeb34/1487930990926/?format=300w",
+  "logo": "logos/accelerate-places.png",
   "challenge": true
 },{
   "name": "Cronofy",
-  "logo": "https://static1.squarespace.com/static/54f1b189e4b0f6df27b46455/t/58b003ed29687fde0f2d95fb/1487930351241/cronofy_logo_800.png?format=300w",
+  "logo": "logos/cronofy.png",
   "challenge": true
 },{
   "name": "Esendex",
-  "logo": "https://static1.squarespace.com/static/54f1b189e4b0f6df27b46455/t/58b005282994cabdb1a602c5/1487930670104/1.+Esendex-rectangular-logo-RGB-72dpi+%281%29.png?format=300w",
+  "logo": "logos/esendex.png",
   "challenge": true
 },{
   "name": "eLife",
-  "logo": "https://static1.squarespace.com/static/54f1b189e4b0f6df27b46455/t/58b0057037c5814f663480c9/1487930791899/?format=300w",
+  "logo": "logos/elife.png",
   "challenge": true
 },{
   "name": "Packed Pixels",
-  "logo": "https://static1.squarespace.com/static/54f1b189e4b0f6df27b46455/t/58b6e9fe6b8f5b8aead518e6/1488382474510/?format=300w",
+  "logo": "logos/packed-pixels.png",
   "challenge": true
 },{
   "name": "UNiDAYS",
-  "logo": "https://static1.squarespace.com/static/54f1b189e4b0f6df27b46455/t/58b00ebf197aea77cf164710/1487933124644/?format=300w",
+  "logo": "logos/unidays.png",
   "challenge": true
 },{
   "name": "Cordius",
-  "logo": "https://static1.squarespace.com/static/54f1b189e4b0f6df27b46455/t/589a42d56a4963ad40eeffb7/1486504692381/?format=300w"
+  "logo": "logos/cordius.png"
 },{
   "name": "GitHub",
-  "logo": "https://static1.squarespace.com/static/54f1b189e4b0f6df27b46455/t/589a45cfe6f2e1884db1aa5a/1486505440720/?format=300w"
+  "logo": "logos/github.png"
 }]

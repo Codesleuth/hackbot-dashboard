@@ -9,5 +9,8 @@
   "rules": {
     "jsx-quotes": ["error", "prefer-single"],
     "semi": ["error", "never"]
+  },
+  "globals": {
+    "require": false
   }
 }

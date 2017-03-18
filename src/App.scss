@@ -1,7 +1,5 @@
 @import "~bulma/bulma";
 
-$color: $black;
-
 .section {
   padding-top: $size-4;
   padding-bottom: $size-5;
@@ -14,4 +12,9 @@ $color: $black;
 .top-banner {
   // TODO: fix override in bulma
   margin-top: $size-6;
+}
+
+.massive {
+  @extend .title;
+  font-size: $size-1 * 1.5;
 }

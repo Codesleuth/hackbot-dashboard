@@ -1,37 +1,37 @@
-import React, { Component, PropTypes as T } from 'react'
+import React, { Component } from 'react'
 import moment from 'moment'
-import './Clock.scss'
 
 class Clock extends Component {
-
-  currentdate = null
-
-  state = {    
-      currentdate: moment.duration(0)
+  state = {
+    currentdate: moment.duration(0)
   }
 
- setTime(){
-    var now = moment().format('h:mm:ss a')
+  timer = null
 
+  setTime() {
     this.setState({
-        currentdate: now
-    });
+      currentdate: moment().format('HH:mm:ss')
+    })
   }
 
   componentWillMount() {
-    this.setTime();
+    this.setTime()
   }
 
   componentDidMount() {
-    window.setInterval(this.setTime.bind(this), 1000)
+    this.timer = setInterval(this.setTime.bind(this), 1000)
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.timer)
   }
 
   render() {
     const { currentdate } = this.state
-      return(                   
-          <span className="clock">{currentdate}</span>       
-      )
-    }
+    return (
+      <span>{currentdate}</span>
+    )
+  }
 }
 
 export default Clock
