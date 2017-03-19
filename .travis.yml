@@ -12,7 +12,3 @@ script: npm run lint && npm run build
 
 after_success:
   - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bash deploy.sh
-
-env:
-  global:
-    - GH_REF: github.com/Codesleuth/hackbot-dashboard.git
