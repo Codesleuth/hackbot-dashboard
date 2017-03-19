@@ -63,7 +63,7 @@ class App extends Component {
                   </h2>
                 </div>
 
-                <div className='tile is-parent is-vertical'>
+                <div className='tile is-parent stats'>
 
                   <div className='tile is-child'>
                     <h1 className='title'>

@@ -33,3 +33,13 @@
     height: 100%;
   }
 }
+
+.stats {
+  .title {
+    font-size: $size-1 * 1.5;
+  }
+
+  .subtitle {
+    font-size: $size-3;
+  }
+}
