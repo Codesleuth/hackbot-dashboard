@@ -15,7 +15,7 @@ export default class WhatsNext {
     const now = moment()
     const nextItems = this.agenda
       .filter((item) => now.isBefore(item.start))
-      .sort((a, b) => a.start.isAfter(b.start))
+      .sort((a, b) => a.start.valueOf() - b.start.valueOf())
 
     this.nextItem = nextItems.length > 0 ? nextItems[0] : null
 
