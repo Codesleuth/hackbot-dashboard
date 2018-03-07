@@ -37,7 +37,8 @@ export default class Timer {
 
       if (!this.abort) {
         const nowSec = now / 1000
-        const timeout = Math.trunc(1000 - (nowSec - Math.trunc(nowSec)) * 1000)
+        const msToNextSecond = Math.trunc(1000 - (nowSec - Math.trunc(nowSec)) * 1000)
+        const timeout = msToNextSecond + 10
         setTimeout(() => this.updateTimer(), timeout)
       }
     }
