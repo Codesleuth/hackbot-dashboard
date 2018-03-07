@@ -10,7 +10,7 @@ echo "Starting deploy..."
 GH_PAGES_BRANCH=gh-pages
 
 (
-  cd build
+  cd dist
 
   git init
   git checkout --orphan $GH_PAGES_BRANCH
