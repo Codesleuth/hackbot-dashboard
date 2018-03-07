@@ -1,7 +1,8 @@
 html, body {
   font-family: 'Courier New', Courier, monospace;
-  color: #00FF00;
-  background-color: black;
+  color: #44A105;
+  text-shadow: 0px 0px 5px black;
+  background-color: #2B2B2B;
 }
 
 .wrapper {
@@ -45,13 +46,13 @@ html, body {
 }
 
 .title {
-  background-image: url('img/hack24.png');
+  background-image: url('img/hack-24-logo-white.png');
   background-repeat: no-repeat;
   background-position-x: center;
   background-position-y: center;
   background-size: contain;
-  -webkit-filter: drop-shadow(0 0 20px silver);
-  filter: drop-shadow(0 0 20px silver);
+  -webkit-filter: drop-shadow(0 0 20px #d62b3b);
+  filter: drop-shadow(0 0 10px #d62b3b);
 }
 
 .title>span {
