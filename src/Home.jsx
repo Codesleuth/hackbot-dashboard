@@ -31,14 +31,43 @@ const agenda = [
 ]
 
 class Home {
+  constructor () {
+    this.currentTeamsCount = null
+    this.currentUsersCount = null
+    this.mounted = false
+  }
+
+  oninit () {
+    this.mounted = true
+    this.updateApiStats()
+  }
+
+  onremove () {
+    this.mounted = false
+  }
+
+  updateApiStats () {
+    window.fetch('http://api.hack24.co.uk/teams')
+      .then((data) => data.json())
+      .then((json) => {
+        this.currentTeamsCount = json.data.length
+        this.currentUsersCount = json.included.filter((included) => included.type === 'users').length
+
+        if (this.mounted) {
+          setTimeout(() => this.updateApiStats(), 5000)
+        }
+      })
+  }
+
   view () {
+    const { currentTeamsCount, currentUsersCount } = this
     return (
       <div class='wrapper'>
-        <div class='title'><img src={hack24logo} /></div>
+        <div class='title'><span>logo</span></div>
         <div class='timer'><Timer start={new Date(2018, 2, 10, 12, 0, 0)} end={new Date(2018, 2, 11, 12, 0, 0)} /></div>
         <div class='clock'><Clock /></div>
-        <div class='teams'>40 teams</div>
-        <div class='hackers'>120 hackers</div>
+        <div class='teams'><span>{currentTeamsCount === null ? '??' : currentTeamsCount}</span> teams</div>
+        <div class='hackers'><span>{currentUsersCount === null ? '??' : currentUsersCount}</span> hackers</div>
         <div class='whatson'>
           <div><span>Now:</span> <WhatsOn agenda={agenda} /></div>
           <div><span>Next:</span> <WhatsNext agenda={agenda} /></div>

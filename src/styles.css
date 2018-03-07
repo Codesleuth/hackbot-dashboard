@@ -11,7 +11,7 @@ html, body {
   grid-auto-rows: minmax(100px, auto);
 }
 .wrapper>div {
-  border: 1px solid grey;
+  /* border: 1px solid grey; */
   padding: 0;
   margin: 0;
 }
@@ -44,9 +44,18 @@ html, body {
   grid-row: 3;
 }
 
-.title img {
+.title {
+  background-image: url('./img/hack24.png');
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  background-size: contain;
   -webkit-filter: drop-shadow(5px 5px 5px white);
   filter: drop-shadow(0 0 20px silver);
+}
+
+.title>span {
+  display: none;
 }
 
 .timer {
