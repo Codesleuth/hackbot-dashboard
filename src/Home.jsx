@@ -7,8 +7,6 @@ import Clock from './Clock'
 import WhatsOn from './WhatsOn'
 import WhatsNext from './WhatsNext'
 
-import hack24logo from './img/hack24.png'
-
 const agenda = [
   { start: moment('2018-03-07T20:00:00'), end: moment('2018-03-10T09:00:00'), title: 'Countdown to registration' },
   { start: moment('2018-03-10T09:00:00'), end: moment('2018-03-10T09:30:00'), title: 'Registration' },
