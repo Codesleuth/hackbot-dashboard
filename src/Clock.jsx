@@ -1,37 +1,36 @@
-import React, { Component } from 'react'
+// eslint-disable-next-line no-unused-vars
+import m from 'mithril'
 import moment from 'moment'
 
-class Clock extends Component {
-  state = {
-    currentdate: moment.duration(0)
+export default class Clock {
+  constructor (vnode) {
+    this.abort = false
   }
 
-  timer = null
-
-  setTime() {
-    this.setState({
-      currentdate: moment().format('HH:mm:ss')
-    })
+  oninit (vnode) {
+    this.updateCurrentTime()
   }
 
-  componentWillMount() {
-    this.setTime()
+  onremove () {
+    this.abort = true
   }
 
-  componentDidMount() {
-    this.timer = setInterval(this.setTime.bind(this), 1000)
+  updateCurrentTime () {
+    this.currentTime = moment()
+
+    m.redraw()
+
+    if (!this.abort) {
+      const now = this.currentTime.valueOf()
+      const nowSec = now / 1000
+      const timeout = 1000 - (nowSec - Math.trunc(nowSec)) * 1000
+      setTimeout(() => this.updateCurrentTime(), timeout)
+    }
   }
 
-  componentWillUnmount() {
-    clearTimeout(this.timer)
-  }
-
-  render() {
-    const { currentdate } = this.state
+  view (vnode) {
     return (
-      <span>{currentdate}</span>
+      <span>{this.currentTime.format('HH:mm:ss')}</span>
     )
   }
 }
-
-export default Clock

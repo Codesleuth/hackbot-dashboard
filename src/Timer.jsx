@@ -1,60 +1,60 @@
-import React, { Component, PropTypes as T } from 'react'
+// eslint-disable-next-line no-unused-vars
+import m from 'mithril'
 import moment from 'moment'
 
-function zeroPad(num) {
+function zeroPad (num) {
   const str = num.toString()
   return str.length > 2 ? str : ('00' + str).substring(str.length)
 }
 
-class Timer extends Component {
-  static propTypes = {
-    start: T.instanceOf(Date).isRequired,
-    end: T.instanceOf(Date).isRequired
+export default class Timer {
+  constructor (vnode) {
+    this.start = vnode.attrs.start
+    this.end = vnode.attrs.end
+    this.abort = false
   }
 
-  timer = null
-
-  state = {
-    isTeeMinus: false,
-    timer: moment.duration(0)
-  }
-
-  updateTimer() {
-    const { start, end } = this.props
-    const epochStart = moment(start).valueOf()
-    const epochEnd = moment(end).valueOf()
-    const now = moment().valueOf()
-
-    this.setState({
-      isTeeMinus: now < epochStart,
-      timer: now < epochStart ? moment.duration(epochStart - now) : moment.duration(epochEnd - now)
-    })
-  }
-
-  componentWillMount() {
+  oninit (vnode) {
     this.updateTimer()
   }
 
-  componentDidMount() {
-    this.timer = setInterval(this.updateTimer.bind(this), 1000)
+  onremove () {
+    this.abort = true
   }
 
-  componentWillUnmount() {
-    clearTimeout(this.timer)
+  updateTimer () {
+    const epochStart = moment(this.start).valueOf() + 1000
+    const epochEnd = moment(this.end).valueOf() + 1000
+    const now = moment().valueOf()
+
+    if (now > epochEnd) {
+      this.abort = true
+      this.isTeeMinus = false
+      this.currentTime = moment.duration(0)
+    } else {
+      this.isTeeMinus = now < epochStart
+      this.currentTime = now < epochStart ? moment.duration(epochStart - now) : moment.duration(epochEnd - now)
+
+      if (!this.abort) {
+        const nowSec = now / 1000
+        const timeout = Math.trunc(1000 - (nowSec - Math.trunc(nowSec)) * 1000)
+        setTimeout(() => this.updateTimer(), timeout)
+      }
+    }
+
+    m.redraw()
   }
 
-  render() {
-    const { isTeeMinus, timer } = this.state
-    const totalHours = timer.hours() + timer.days() * 24
+  view (vnode) {
+    const { isTeeMinus, currentTime } = this
+    const totalHours = currentTime.hours() + currentTime.days() * 24
     return (
       <span>
-        <span>{isTeeMinus && 'T-'}</span>
+        <span>{isTeeMinus && 'T- '}</span>
         <span>{zeroPad(totalHours)}</span>:
-        <span>{zeroPad(timer.minutes())}</span>:
-        <span>{zeroPad(timer.seconds())}</span>
+        <span>{zeroPad(currentTime.minutes())}</span>:
+        <span>{zeroPad(currentTime.seconds())}</span>
       </span>
     )
   }
 }
-
-export default Timer

@@ -1,0 +1,83 @@
+html, body {
+  font-family: 'Courier New', Courier, monospace;
+  color: #00FF00;
+  background-color: black;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+.wrapper>div {
+  border: 1px solid grey;
+  padding: 0;
+  margin: 0;
+}
+.title {
+  grid-column: 1 / span 2;
+  grid-row: 1;
+}
+.timer {
+  grid-column: 3 / span 4;
+  grid-row: 1;
+}
+.clock {
+  grid-column: 1 / span 2;
+  grid-row: 2;
+}
+.teams {
+  grid-column: 3 / span 2;
+  grid-row: 2;
+}
+.hackers {
+  grid-column: 5 / span 2;
+  grid-row: 2;
+}
+.whatson {
+  grid-column: 1 / span 6;
+  grid-row: 3;
+}
+.whatsnext {
+  grid-column: 5 / span 2;
+  grid-row: 3;
+}
+
+.title img {
+  -webkit-filter: drop-shadow(5px 5px 5px white);
+  filter: drop-shadow(0 0 20px silver);
+}
+
+.timer {
+  text-align: center;
+  font-size: 8vw;
+}
+
+.clock {
+  text-align: center;
+  font-size: 5vw;
+}
+
+.teams {
+  text-align: center;
+  font-size: 4vw;
+}
+.hackers {
+  text-align: center;
+  font-size: 4vw;
+}
+
+.whatson {
+  font-size: 3vw;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.whatsnext {
+  font-size: 3vw;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
