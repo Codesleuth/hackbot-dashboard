@@ -26,7 +26,7 @@ export default class WhatsNext {
     const { nextItem } = this
     return (
       <span>
-        {nextItem && <span>{nextItem.start.format('ha')} {nextItem.title}</span>}
+        <em>{nextItem && <span>{nextItem.start.format('h:mma')} {nextItem.title}</span>}</em>
       </span>
     )
   }
