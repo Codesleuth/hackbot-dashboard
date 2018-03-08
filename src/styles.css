@@ -12,7 +12,6 @@ html, body {
   grid-auto-rows: minmax(100px, auto);
 }
 .wrapper>div {
-  border: 1px solid grey;
   padding: 0;
   margin: 0;
 }
